@@ -1,55 +1,70 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mr_empowerment/view/screens/audio_screen/audio_screen.dart';
+
 
 class AudioItem extends StatelessWidget {
   // const ({Key? key}) : super(key: key);
-  String title;
-  String image;
-  String description;
+ final  String title;
+  final String image;
+  final String description;
+  final String audio;
+  
+  AudioItem({required this.audio, required this.title, required this.image, required this.description});
+  void selectAudio(BuildContext ctx) {
+    Navigator.of(ctx).pushNamed(AudioScreen.routeName, arguments: {
+      'title' : title,
+    'description' : description,
+      'audio':audio
+    });
+  }
 
-  AudioItem({required this.title, required this.image, required this.description});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(top: 30),
-      decoration: BoxDecoration(
-      ),
-      child: Stack(
-       children: [
-         Container(
-           padding: EdgeInsets.only(top: 0),
-           height: MediaQuery.of(context).size.height,
-           width: double.infinity,
-           decoration: BoxDecoration(
-             borderRadius: BorderRadius.circular(10),
-             color: Colors.brown,
-           ),
-           child: Column(
-             mainAxisAlignment: MainAxisAlignment.end,
-             children: [
-               SizedBox(height: 10,),
-               SizedBox(height: 50,),
-               Text(title),
-               Text(description, style: TextStyle(
-                 color: Colors.white
-               ),),
-             ],
-           ),
-      ),
+    return InkWell(
+      onTap:() { return  selectAudio(context);},
+      borderRadius: BorderRadius.circular(10),
+      child: Container(
+        margin: const EdgeInsets.only(top: 30),
+        decoration: BoxDecoration(
+        ),
+        child: Stack(
+          children: [
+            Container(
+              padding: EdgeInsets.only(top: 6),
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.brown,
+                border:Border.all(color: Colors.black),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(title),
+                  Text(description, style: TextStyle(
+                      color: Colors.white
+                  ),),
+                ],
+              ),
+            ),
 
-         SizedBox(
-           width: double.infinity,
-           height: 300,
-           child: Center(
-             child: ClipRRect(
-               borderRadius: BorderRadius.circular(10),
-      child: Image.asset(image, fit: BoxFit.contain,
-      ),
-  ),
-           ),
-         ),
-      ],
+            SizedBox(
+              width: double.infinity,
+              height: 150,
+
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(image, fit: BoxFit.cover,
+                ),
+              ),
+
+            ),
+          ],
+        ),
       ),
     );
+
   }
 }
