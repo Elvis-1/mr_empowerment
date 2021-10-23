@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:mr_empowerment/view/screens/audio_list_screens/audio_list_screen.dart';
 import 'package:mr_empowerment/view/screens/audio_screen/audio_screen.dart';
 import 'package:mr_empowerment/view/screens/home_screen/home_screen.dart';
-import 'package:mr_empowerment/view/screens/library.dart';
-import 'package:mr_empowerment/view/screens/podcast_screen.dart';
+ import 'package:mr_empowerment/view/screens/library_screen/library_screen.dart';
+import 'package:mr_empowerment/view/screens/podcast_screen/podcast_screen.dart';
+import 'package:mr_empowerment/view/screens/user_profile_screen/user_profile_screen.dart';
 import 'package:mr_empowerment/view/screens/video_screen/video_list_screen.dart';
 import 'package:mr_empowerment/view/screens/video_screen/video_screen.dart';
 import 'package:mr_empowerment/view/widgets/appbar_widget.dart';
@@ -17,7 +18,8 @@ class TabsScreen extends StatefulWidget {
 
 class _TabsScreenState extends State<TabsScreen> {
   List<Widget> _screens  = [
-   HomeScreen(), AudioListScreen(),PodCastScreen(),VideoListScreen(),LibraryScreen(),
+   HomeScreen(), AudioListScreen(),
+    VideoListScreen(),LibraryScreen(),UserProfileScreen()
   ];
   int _selectIndex = 0;
   void _selectScreen(int index){
@@ -37,17 +39,13 @@ class _TabsScreenState extends State<TabsScreen> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            title: Text('Audios'),
+            title: Text('Home'),
 
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.mic),
             title: Text('Audios'),
 
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.podcasts),
-              title: Text('Podcasts')
           ),
 
           BottomNavigationBarItem(
@@ -57,9 +55,13 @@ class _TabsScreenState extends State<TabsScreen> {
           BottomNavigationBarItem(
             icon:Icon(Icons.menu_book_sharp),
             title:Text('Library'),
-          )
+          ),
+    BottomNavigationBarItem(
+    icon:Icon(Icons.person_rounded),
+    title:Text('Library'))
         ],
       ),
+
     );
   }
 }

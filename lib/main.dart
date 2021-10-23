@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mr_empowerment/view/screens/audio_screen/audio_screen.dart';
 import 'package:mr_empowerment/view/screens/home_screen/home_screen.dart';
 import 'package:mr_empowerment/view/screens/tab_screen/tab_screen.dart';
-import 'package:mr_empowerment/view/screens/user_profile_screen.dart';
+import 'package:mr_empowerment/view/screens/user_profile_screen/user_profile_screen.dart';
 
 
 
