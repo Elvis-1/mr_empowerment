@@ -20,17 +20,19 @@ class HomeVideo extends StatelessWidget {
 child: Stack(
     children: [
       Container(
-          height: 400,
-          child: Image.asset('assets/images/video.jpg', fit: BoxFit.fill,)),
-      Center(
-        child: IconButton(
-    onPressed: null,
-    icon: Icon(Icons.play_arrow),
-    iconSize: 150,
-          color: Colors.red,
-          focusColor: Colors.red,
-    ),
-      ),
+          child: ClipRRect(
+              borderRadius: BorderRadius.circular(30),
+              child: Image.asset('assets/images/home.jpg',
+                fit: BoxFit.cover,))),
+    //   Center(
+    //     child: IconButton(
+    // onPressed: null,
+    // icon: Icon(Icons.play_arrow),
+    // iconSize: 150,
+    //       color: Colors.red,
+    //       focusColor: Colors.red,
+    // ),
+    //   ),
     ],
     ),
         ),

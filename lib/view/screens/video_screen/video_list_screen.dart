@@ -5,12 +5,8 @@ class VideoListScreen extends StatelessWidget {
  // const VideoListScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Videos'),
-      ),
-      body:VideoListItem(videos)
-    );
+    return VideoListItem(videos);
+
 
   }
 }

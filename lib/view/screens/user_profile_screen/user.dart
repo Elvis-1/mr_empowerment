@@ -15,9 +15,10 @@ class User extends StatelessWidget {
             children: [
               Container(
                 width: double.infinity,
-                height: 350,
+                height: 200,
                 decoration: BoxDecoration(
-                  color: Colors.blue,
+                  // color: Color(0xFF083663),
+                  color: Color(0xFF2D365C),
                 ),
               ),
               Center(
@@ -26,20 +27,28 @@ class User extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround
                 ,
                 children: [
-                  SizedBox(height: 150,),
+                  SizedBox(height: 10,),
                   Text('Profile', style: TextStyle(
-                      color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),),
+                      color: Colors.white, fontSize: 30,
+                      fontFamily: 'RobotoCondensed',
+                      fontWeight: FontWeight.bold),),
                   SizedBox(height: 20,),
-                  ClipRRect(
-                         borderRadius: BorderRadius.circular(125.0),
-                         child: Image.asset(
-                           image!,
-                           height: 250.0,
-                           width: 250.0,
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.white, width: 5),
+                      borderRadius: BorderRadius.circular(100)
+                    ),
+                    child: ClipRRect(
+                           borderRadius: BorderRadius.circular(100.0),
+                           child: Image.asset(
+                             image!,
+                             height: 200.0,
+                             width: 200.0,
 
-                           fit: BoxFit.fill,
+                             fit: BoxFit.fill,
+                           ),
                          ),
-                       ),
+                  ),
                 ],
               )
                 ),
@@ -49,7 +58,10 @@ class User extends StatelessWidget {
             ],
         ),
         SizedBox(height: 30,),
-        Text(name!, style: TextStyle(color: Colors.black),),
+        Text(name!, style: TextStyle(color: Color(0xFF2D365C),
+            fontWeight:FontWeight.bold, fontSize: 30,
+        fontFamily: 'RobotoCondensed',
+        ),),
         Text(email!),
       ],
     );

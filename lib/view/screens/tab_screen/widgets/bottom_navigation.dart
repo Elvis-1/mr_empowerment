@@ -17,8 +17,11 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  List<Widget> _screens  = [
-    HomeScreen(), AudioListScreen(),VideoListScreen(),LibraryScreen(),UserProfileScreen()
+  List<Map<String, dynamic>> _screens  = [
+    { 'page':HomeScreen(), 'title':'Good'},
+    {'page':AudioListScreen(), 'title':'Audios'},
+    { 'page':VideoListScreen(), 'title':'Videos'},
+    {'page':LibraryScreen(), 'title':'EBOOKS'}
   ];
   int _selectIndex = 0;
   void _selectScreen(int index){
@@ -29,8 +32,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  appbarWidget(context),
-      body:_screens[_selectIndex],
+      appBar:  appbarWidget(context,_screens[_selectIndex]['title']),
+      body:_screens[_selectIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
         unselectedItemColor:Colors.black,
         selectedItemColor: Color(0xFFfc6a26),
@@ -55,10 +58,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             icon:Icon(Icons.menu_book_sharp),
             title:Text('Library'),
           ),
-          BottomNavigationBarItem(
-            icon:Icon(Icons.person_rounded),
-            title:Text('Library'),
-          )
+
         ],
       ),
     );

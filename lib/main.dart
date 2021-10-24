@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Color(0xFF2D365C),
         accentColor: Colors.amber,
         canvasColor: Color.fromRGBO(255, 254, 229, 1),
         fontFamily: 'RobotoCondenced',
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
             color: Color.fromRGBO(20, 51, 51, 1),
           ),
           title: TextStyle(
-            fontFamily: 'RobotoCondenced',
+            fontFamily: 'RobotoCondensed',
             fontSize: 24,
           )
         ),
@@ -41,6 +41,9 @@ class MyApp extends StatelessWidget {
         AudioScreen.routeName : (ctx) => AudioScreen(),
         UserProfileScreen.routeName: (ctx)=> UserProfileScreen(),
       },
+      onUnknownRoute:(settings){
+        return MaterialPageRoute(builder: (ctx) =>AudioScreen());
+      }
     );
   }
 }
