@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mr_empowerment/view/screens/audio_screen/widgets/audio.dart';
-import 'package:mr_empowerment/view/screens/tab_screen/tab_screen.dart';
-import 'package:mr_empowerment/view/widgets/appbar_widget.dart';
-import '../../../data/datasource/audio_dummy_data.dart';
-import './widgets/profile_image.dart';
+import 'package:provider/provider.dart';
+import 'package:mr_empowerment/providers/audio_provider.dart';
+
+
 import './widgets/audio_item.dart';
 
 class AudioListScreen extends StatelessWidget {
@@ -12,6 +11,8 @@ class AudioListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final audioData = Provider.of<AudioProvider>(context);
+    final audios= audioData.audios;
     return GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount:3,
@@ -22,6 +23,7 @@ class AudioListScreen extends StatelessWidget {
                 itemCount: audios.length,
                 itemBuilder: (ctx, index){
                   return AudioItem(
+                      id:audios[index].id,
                       audio:audios[index].title,
                       title: audios[index].title,
                       image: audios[index].image,

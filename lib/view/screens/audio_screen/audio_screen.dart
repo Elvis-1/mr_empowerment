@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mr_empowerment/view/screens/audio_screen/widgets/audio.dart';
-import 'package:mr_empowerment/view/screens/video_screen/widgets/video.dart';
+import 'package:mr_empowerment/data/model/audio_model.dart';
 
+import 'package:provider/provider.dart';
+import 'package:mr_empowerment/providers/audio_provider.dart';
 
 class AudioScreen extends StatelessWidget {
   static const routeName = '/audio-screen';
@@ -13,10 +14,18 @@ class AudioScreen extends StatelessWidget {
   //  AudioScreen(this.title, this.description);
   @override
   Widget build(BuildContext context) {
-    final routeArgs = ModalRoute.of(context)!.settings.arguments as Map<String, String>;
-    final audioTitle = routeArgs['title'];
-    final audioDescription = routeArgs['description'];
-    final audioFile = routeArgs['audio'];
+
+    final routeArgsId = ModalRoute.of(context)!.settings.arguments as String;
+    final audioData = Provider.of<AudioProvider>(context, listen: false).findById(routeArgsId);
+
+
+
+    // final audioTitle = routeArgs['title'];
+    final audioTitle = audioData.title;
+    // final audioDescription = routeArgs['description'];
+    final audioDescription = audioData.description;
+    // final audioFile = routeArgs['audio'];
+    final audioFile = audioData.audio;
     return Scaffold(
       appBar: AppBar(
         title:Text(audioTitle!),

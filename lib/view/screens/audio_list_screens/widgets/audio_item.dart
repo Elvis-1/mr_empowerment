@@ -5,18 +5,16 @@ import 'package:mr_empowerment/view/screens/audio_screen/audio_screen.dart';
 
 class AudioItem extends StatelessWidget {
   // const ({Key? key}) : super(key: key);
+  final String id;
  final  String title;
   final String image;
   final String description;
   final String audio;
   
-  AudioItem({required this.audio, required this.title, required this.image, required this.description});
+  AudioItem({required this.id, required this.audio, required this.title, required this.image, required this.description});
+
   void selectAudio(BuildContext ctx) {
-    Navigator.of(ctx).pushNamed(AudioScreen.routeName, arguments: {
-      'title' : title,
-    'description' : description,
-      'audio':audio
-    });
+    Navigator.of(ctx).pushNamed(AudioScreen.routeName, arguments: id);
   }
 
 

@@ -19,9 +19,7 @@ Widget ProfileImage(BuildContext context, name,image){
           child: ClipRRect(
               borderRadius: BorderRadius.circular(25),
               child: Image.asset('assets/images/dr.jpg',
-                width: 50,
-                height: 50,
-                fit: BoxFit.contain,)),
+                fit: BoxFit.cover,)),
 
 
       );

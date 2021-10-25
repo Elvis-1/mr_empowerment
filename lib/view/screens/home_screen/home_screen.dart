@@ -3,12 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:mr_empowerment/view/screens/audio_list_screens/widgets/audio_item.dart';
 import 'package:mr_empowerment/view/screens/home_screen/widget/home_library.dart';
 import 'package:mr_empowerment/view/screens/home_screen/widget/home_video.dart';
-
+import 'package:provider/provider.dart';
+import '../../../providers/audio_provider.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+   final temporaryData = Provider.of<AudioProvider>(context)
+        .audios
+        .firstWhere((element) => element.id == 'a1');
+
     return Scaffold(
       appBar: null,
       body: Padding(
@@ -29,9 +34,11 @@ class HomeScreen extends StatelessWidget {
                           height: 220,
                           child: Center(
                             child: AudioItem(
-                                audio: 'Audio',
-                                title: 'Title',
-                                image: 'assets/images/dr.jpg', description:'coming soon'),
+                                id: temporaryData.id,
+                                audio: temporaryData.id,
+                                title: temporaryData.title,
+                                image: temporaryData.image,
+                                description:temporaryData.description),
                           ),
                         ),
 
@@ -39,10 +46,12 @@ class HomeScreen extends StatelessWidget {
                       Container(
                         width:120,
                         height: 220,
-                        child: AudioItem(
-                            audio: 'Audio',
-                            title: 'Title',
-                            image: 'assets/images/dr.jpg', description:'coming soon'),
+                        child:AudioItem(
+                            id: temporaryData.id,
+                            audio: temporaryData.id,
+                            title: temporaryData.title,
+                            image: temporaryData.image,
+                            description:temporaryData.description),
                       ),
 
                     ],
