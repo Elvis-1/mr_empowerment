@@ -16,12 +16,13 @@ class AudioScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final routeArgsId = ModalRoute.of(context)!.settings.arguments as String;
-    final audioData = Provider.of<AudioProvider>(context, listen: false).findById(routeArgsId);
+    final audioData = Provider.of<AudioProvider>(context, listen: false).
+    findById(routeArgsId);
 
 
 
     // final audioTitle = routeArgs['title'];
-    final audioTitle = audioData.title;
+    final String? audioTitle = audioData.title;
     // final audioDescription = routeArgs['description'];
     final audioDescription = audioData.description;
     // final audioFile = routeArgs['audio'];

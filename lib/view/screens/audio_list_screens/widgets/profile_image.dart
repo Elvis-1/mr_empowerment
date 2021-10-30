@@ -16,12 +16,15 @@ Widget ProfileImage(BuildContext context, name,image){
     },
 
 
-          child: ClipRRect(
-              borderRadius: BorderRadius.circular(25),
-              child: Image.asset('assets/images/dr.jpg',
-                fit: BoxFit.cover,)),
+          // child: ClipRRect(
+          //     borderRadius: BorderRadius.circular(25),
+          //     child: Image.asset('assets/images/dr.jpg',
+          //       fit: BoxFit.cover,)),
+    child:CircleAvatar(
+      backgroundImage:AssetImage('assets/images/dr.jpg'),
+    ),
 
 
       );
-  ;
+
 }

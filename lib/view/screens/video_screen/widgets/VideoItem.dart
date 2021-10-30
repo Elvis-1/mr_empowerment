@@ -56,10 +56,16 @@ class VideoItem extends StatelessWidget {
                   ),
                 ),
                 PopupMenuButton(
+                  onSelected: (int selectedValue){
+                        print(selectedValue);
+                  },
                     itemBuilder: (_){
                       return [
-                        PopupMenuItem(child: Text('Yet to come'),),
-                        PopupMenuItem(child:Text('Soon to come'))
+                        PopupMenuItem(child: Text('Yet to come',
+                            style:
+                            TextStyle(color:Theme.of(context).primaryColor )), value: 0,),
+                        PopupMenuItem(child:Text('Soon to come',style:
+                        TextStyle(color:Theme.of(context).primaryColor )), value: 1,)
                       ];
                     })
               ],
